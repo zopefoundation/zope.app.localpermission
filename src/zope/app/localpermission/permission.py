@@ -12,8 +12,6 @@
 #
 ##############################################################################
 """Persistent Local Permissions
-
-$Id: permission.py 97714 2009-03-09 18:52:31Z nadako $
 """
 __docformat__ = 'restructuredtext'
 
@@ -21,7 +19,7 @@ from persistent import Persistent
 from zope.component import adapter
 from zope.component.interfaces import IRegistered, IUnregistered
 from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from zope.interface import implementer
 from zope.location import Location
 from zope.security.interfaces import IPermission
 
@@ -29,9 +27,8 @@ _ = MessageFactory('zope')
 
 NULL_ID = _(u'<permission not activated>')
 
-
+@implementer(IPermission)
 class LocalPermission(Persistent, Location):
-    implements(IPermission)
 
     def __init__(self, title=u'', description=u''):
         self.id = NULL_ID
@@ -52,8 +49,8 @@ def setIdOnActivation(permission, event):
     ...         self.name = name
 
     >>> perm1 = LocalPermission('Permission 1', 'A first permission')
-    >>> perm1.id
-    u'<permission not activated>'
+    >>> print(perm1.id)
+    <permission not activated>
 
     >>> import zope.component.interfaces
     >>> event = zope.component.interfaces.Registered(
@@ -92,7 +89,7 @@ def unsetIdOnDeactivation(permission, event):
     should be set to NULL_ID.
 
     >>> unsetIdOnDeactivation(perm1, event)
-    >>> perm1.id
-    u'<permission not activated>'
+    >>> print(perm1.id)
+    <permission not activated>
     """
     permission.id = NULL_ID
