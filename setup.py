@@ -22,7 +22,7 @@ def read(*rnames):
     with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
         return f.read()
 
-version = '4.0.1.dev0'
+version = '4.1.0.dev0'
 
 tests_require = [
     'zope.annotation',
@@ -37,9 +37,9 @@ setup(name='zope.app.localpermission',
       author_email='zope-dev@zope.org',
       description='Local Persistent Permissions for zope.security',
       long_description=(
-          read('README.txt')
+          read('README.rst')
           + '\n\n' +
-          read('CHANGES.txt')
+          read('CHANGES.rst')
           ),
       keywords="zope security persistent local permission",
       classifiers=[
@@ -54,6 +54,7 @@ setup(name='zope.app.localpermission',
           'Programming Language :: Python :: 3.4',
           'Programming Language :: Python :: 3.5',
           'Programming Language :: Python :: 3.6',
+          'Programming Language :: Python :: 3.7',
           'Programming Language :: Python :: Implementation :: CPython',
           'Programming Language :: Python :: Implementation :: PyPy',
           'Natural Language :: English',
@@ -61,7 +62,7 @@ setup(name='zope.app.localpermission',
           'Topic :: Internet :: WWW/HTTP',
           'Framework :: Zope :: 3',
       ],
-      url='http://github.org/zopefoundation/zope.app.localpermission',
+      url='https://github.org/zopefoundation/zope.app.localpermission',
       license='ZPL 2.1',
       packages=find_packages('src'),
       package_dir={'': 'src'},
@@ -81,4 +82,4 @@ setup(name='zope.app.localpermission',
       },
       include_package_data=True,
       zip_safe=False,
-      )
+)
