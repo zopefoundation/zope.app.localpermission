@@ -17,7 +17,7 @@ __docformat__ = 'restructuredtext'
 
 from persistent import Persistent
 from zope.component import adapter
-from zope.component.interfaces import IRegistered, IUnregistered
+from zope.interface.interfaces import IRegistered, IUnregistered
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implementer
 from zope.location import Location
@@ -43,7 +43,7 @@ def setIdOnActivation(permission, event):
     Let's see how this notifier can be used. First we need to create an event
     using the permission instance and a registration stub:
 
-    >>> class Registration:
+    >>> class Registration(object):
     ...     def __init__(self, obj, name):
     ...         self.component = obj
     ...         self.name = name
@@ -52,8 +52,8 @@ def setIdOnActivation(permission, event):
     >>> print(perm1.id)
     <permission not activated>
 
-    >>> import zope.component.interfaces
-    >>> event = zope.component.interfaces.Registered(
+    >>> import zope.interface.interfaces
+    >>> event = zope.interface.interfaces.Registered(
     ...     Registration(perm1, 'perm1'))
 
     Now we pass the event into this function, and the id of the permission
@@ -73,7 +73,7 @@ def unsetIdOnDeactivation(permission, event):
     Let's see how this notifier can be used. First we need to create an event
     using the permission instance and a registration stub:
 
-    >>> class Registration:
+    >>> class Registration(object):
     ...     def __init__(self, obj, name):
     ...         self.component = obj
     ...         self.name = name
@@ -81,8 +81,8 @@ def unsetIdOnDeactivation(permission, event):
     >>> perm1 = LocalPermission('Permission 1', 'A first permission')
     >>> perm1.id = 'perm1'
 
-    >>> import zope.component.interfaces
-    >>> event = zope.component.interfaces.Unregistered(
+    >>> import zope.interface.interfaces
+    >>> event = zope.interface.interfaces.Unregistered(
     ...     Registration(perm1, 'perm1'))
 
     Now we pass the event into this function, and the id of the permission
