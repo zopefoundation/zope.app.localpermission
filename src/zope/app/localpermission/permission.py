@@ -27,6 +27,7 @@ _ = MessageFactory('zope')
 
 NULL_ID = _(u'<permission not activated>')
 
+
 @implementer(IPermission)
 class LocalPermission(Persistent, Location):
 
