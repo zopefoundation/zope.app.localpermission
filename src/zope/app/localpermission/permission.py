@@ -27,13 +27,13 @@ from zope.security.interfaces import IPermission
 
 _ = MessageFactory('zope')
 
-NULL_ID = _(u'<permission not activated>')
+NULL_ID = _('<permission not activated>')
 
 
 @implementer(IPermission)
 class LocalPermission(Persistent, Location):
 
-    def __init__(self, title=u'', description=u''):
+    def __init__(self, title='', description=''):
         self.id = NULL_ID
         self.title = title
         self.description = description
