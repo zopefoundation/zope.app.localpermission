@@ -24,7 +24,7 @@ def read(*rnames):
         return f.read()
 
 
-version = '4.2.0.dev0'
+version = '5.0.dev0'
 
 tests_require = [
     'zope.annotation',
