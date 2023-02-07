@@ -17,11 +17,13 @@ __docformat__ = 'restructuredtext'
 
 from persistent import Persistent
 from zope.component import adapter
-from zope.interface.interfaces import IRegistered, IUnregistered
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implementer
+from zope.interface.interfaces import IRegistered
+from zope.interface.interfaces import IUnregistered
 from zope.location import Location
 from zope.security.interfaces import IPermission
+
 
 _ = MessageFactory('zope')
 

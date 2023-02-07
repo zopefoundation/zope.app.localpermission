@@ -13,8 +13,8 @@
 ##############################################################################
 """Tests for zope.localpermission.
 """
-import unittest
 import doctest
+import unittest
 
 from zope.testing.cleanup import CleanUp
 
